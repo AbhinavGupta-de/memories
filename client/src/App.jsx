@@ -1,10 +1,14 @@
+import { Form, Header, Posts } from './components/index';
+
 function App() {
 	return (
-		<>
-			<div>
-				<h1 className="font-bold m-5 p-5">Memories</h1>
+		<div className="font-['Fira']">
+			<Header />
+			<div className="max-w-[60%] mx-auto items-center justify-center grid-cols-2">
+				<Posts />
+				<Form />
 			</div>
-		</>
+		</div>
 	);
 }
 
