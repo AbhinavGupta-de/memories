@@ -11,7 +11,7 @@ const Posts = () => {
 			</div>
 		</div>
 	) : (
-		<div className="col-span-2 grid grid-cols-2">
+		<div className="col-span-2 grid grid-cols-2 gap-3">
 			{posts.map((post) => (
 				<Post key={post._id} post={post} />
 			))}

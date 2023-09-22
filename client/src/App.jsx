@@ -13,7 +13,7 @@ function App() {
 	return (
 		<div className="font-Fira">
 			<Header />
-			<div className="max-w-[60%] mx-auto grid grid-cols-3 gap-4">
+			<div className="max-w-[85%] mx-auto grid grid-cols-3 gap-4">
 				<Posts />
 				<Form />
 			</div>

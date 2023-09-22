@@ -19,10 +19,18 @@ const Form = () => {
 
 		dispatch(createPost(postData));
 	};
-	const clear = () => {};
+	const clear = () => {
+		setPostData({
+			creator: '',
+			title: '',
+			message: '',
+			tags: '',
+			selectedFile: '',
+		});
+	};
 
 	return (
-		<div className="flex flex-col items-end justify-center w-full col-span-1 bg-[#f5f5ef]">
+		<div className="flex flex-col items-end w-full col-span-1 bg-[#f5f5ef]">
 			{/*  Heading */}
 			<div className="w-full flex items-center justify-center mt-2 font-Fira">
 				<span className="text-[20px]">Creating a Memory</span>
@@ -73,6 +81,7 @@ const Form = () => {
 				<FileBase
 					type="file"
 					multiple={false}
+					value={postData.selectedFile}
 					onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
 				/>
 			</div>
@@ -80,7 +89,7 @@ const Form = () => {
 			{/*  Buttons */}
 			<div className="flex flex-col w-full p-5 gap-1">
 				<button
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded "
+					className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded"
 					type="submit"
 					onClick={handleSubmit}
 				>
