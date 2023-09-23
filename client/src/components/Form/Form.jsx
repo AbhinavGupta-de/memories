@@ -31,6 +31,7 @@ const Form = ({ currentId, setCurrentId }) => {
 		}
 	};
 	const clear = () => {
+		setCurrentId(null);
 		setPostData({
 			creator: '',
 			title: '',
@@ -41,7 +42,7 @@ const Form = ({ currentId, setCurrentId }) => {
 	};
 
 	return (
-		<div className="flex flex-col items-center w-4/5 col-span-1 bg-[#f5f5ef] ml-auto h-fit">
+		<div className="flex flex-col items-center lg:w-4/5 col-span-1 bg-[#f5f5ef] ml-auto h-fit lg:justify-center w-full">
 			{/*  Heading */}
 			<div className="w-full flex items-center justify-center mt-2 font-Fira">
 				<span className="text-[20px]">
@@ -84,7 +85,9 @@ const Form = ({ currentId, setCurrentId }) => {
 						type="text"
 						placeholder="Tags"
 						value={postData.tags}
-						onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+						onChange={(e) =>
+							setPostData({ ...postData, tags: e.target.value.split(',') })
+						}
 					/>
 				</div>
 			</div>

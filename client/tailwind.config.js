@@ -5,6 +5,8 @@ export default {
 		extend: {},
 		fontFamily: {
 			Fira: ['"Fira Sans"', 'sans-serif'],
+			Fuggles: ['"Fuggles"', 'cursive'],
+			Lato: ['"Lato"', 'sans-serif'],
 		},
 	},
 	plugins: [],

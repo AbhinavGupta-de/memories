@@ -1,10 +1,16 @@
+import { deletePost, likePost } from '../../../actions/posts';
 import TimeAgo from './TimeAgo';
+import { useDispatch } from 'react-redux';
 
 const Post = ({ post, currentId, setCurrentId }) => {
-	const handleLike = () => {};
+	const dispatch = useDispatch();
+
+	const handleLike = () => {
+		dispatch(likePost(post._id));
+	};
 
 	const handleDelete = () => {
-		console.log('Delete');
+		dispatch(deletePost(post._id));
 	};
 
 	const handleEdit = () => {
@@ -21,7 +27,6 @@ const Post = ({ post, currentId, setCurrentId }) => {
 					className="filter brightness-50 rounded-t-xl"
 				/>
 			</div>
-
 			{/* Heading and time to be displayed on top of the image*/}
 			<div className="absolute p-2 text-white text-[25px]">{post.creator}</div>
 			<div className="absolute mt-10 text-white p-2 text-[14px]">
@@ -29,10 +34,12 @@ const Post = ({ post, currentId, setCurrentId }) => {
 			</div>
 
 			{/* Tags and other content*/}
-			<div className="text-gray-500 p-2 text-[15px]">{post.tags}</div>
+			<div className="text-gray-500 p-2 text-[15px]">
+				{post.tags.map((tags) => `#${tags} `)}
+			</div>
 
 			<div className="ml-3 text-[26px]">{post.title}</div>
-			<div className="ml-2 text-[16px]">{post.message}</div>
+			<div className="ml-2 text-[16px] font-Lato">{post.message}</div>
 			<div className="flex justify-between w-full p-2">
 				<button
 					className="flex gap-1 justify-center items-center"
