@@ -30,7 +30,7 @@ const Form = () => {
 	};
 
 	return (
-		<div className="flex flex-col items-end w-full col-span-1 bg-[#f5f5ef]">
+		<div className="flex flex-col items-center w-4/5 col-span-1 bg-[#f5f5ef] ml-auto">
 			{/*  Heading */}
 			<div className="w-full flex items-center justify-center mt-2 font-Fira">
 				<span className="text-[20px]">Creating a Memory</span>
