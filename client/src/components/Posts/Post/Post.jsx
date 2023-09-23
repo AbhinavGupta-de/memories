@@ -1,14 +1,18 @@
 import TimeAgo from './TimeAgo';
 
-const Post = ({ post }) => {
+const Post = ({ post, currentId, setCurrentId }) => {
 	const handleLike = () => {};
 
 	const handleDelete = () => {
 		console.log('Delete');
 	};
 
+	const handleEdit = () => {
+		setCurrentId(post._id);
+	};
+
 	return (
-		<div className="flex flex-col justify-start items-start m-2 h-full shadow-lg rounded-xl">
+		<div className="flex flex-col justify-start items-start m-2 h-fit shadow-lg rounded-xl">
 			{/* Background Image the one that was posted by the user */}
 			<div className="-z-10 rounded-xl border-t-2 border-solid">
 				<img
@@ -38,7 +42,22 @@ const Post = ({ post }) => {
 					<span>Like</span>
 					<span>{post.likeCount}</span>
 				</button>
-				<button onClick={handleDelete}>Delete</button>
+				<div>
+					<button
+						onClick={handleDelete}
+						className=" text-[#e51c1c] flex items-center gap-1"
+					>
+						Delete
+					</button>
+
+					<button
+						className="flex items-center justify-center gap-1"
+						onClick={handleEdit}
+					>
+						<i className="fa-solid fa-pen-to-square" style={{ color: '#000000' }}></i>
+						<span>Edit</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	);

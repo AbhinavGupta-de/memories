@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FileBase from 'react-file-base64';
-import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/posts';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPost, updatePost } from '../../actions/posts';
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
+	const posts = useSelector((state) =>
+		currentId ? state.posts.find((p) => p._id === currentId) : null
+	);
 	const [postData, setPostData] = useState({
 		creator: '',
 		title: '',
@@ -12,12 +15,20 @@ const Form = () => {
 		selectedFile: '',
 	});
 
+	useEffect(() => {
+		if (posts) setPostData(posts);
+	}, [posts]);
+
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		dispatch(createPost(postData));
+		if (currentId) {
+			dispatch(updatePost(currentId, postData));
+		} else {
+			dispatch(createPost(postData));
+		}
 	};
 	const clear = () => {
 		setPostData({
@@ -30,10 +41,12 @@ const Form = () => {
 	};
 
 	return (
-		<div className="flex flex-col items-center w-4/5 col-span-1 bg-[#f5f5ef] ml-auto">
+		<div className="flex flex-col items-center w-4/5 col-span-1 bg-[#f5f5ef] ml-auto h-fit">
 			{/*  Heading */}
 			<div className="w-full flex items-center justify-center mt-2 font-Fira">
-				<span className="text-[20px]">Creating a Memory</span>
+				<span className="text-[20px]">
+					{currentId ? 'Editing' : 'Creating'} a Memory
+				</span>
 			</div>
 
 			{/*  Input fields */}
