@@ -14,7 +14,7 @@ function App() {
 	return (
 		<div className="font-Fira">
 			<Header />
-			<div className="max-w-[85%] mx-auto lg:grid grid-cols-3 gap-4 flex flex-col">
+			<div className="max-w-[85%] mx-auto lg:grid grid-cols-3 gap-4 flex flex-col-reverse">
 				<Posts currentId={currentId} setCurrentId={setCurrentId} />
 				<Form currentId={currentId} setCurrentId={setCurrentId} />
 			</div>

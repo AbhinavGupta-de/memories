@@ -113,7 +113,7 @@ const Form = ({ currentId, setCurrentId }) => {
 				</button>
 
 				<button
-					className="bg-gray-500 hover:bg-gray-700 text-white font-bold p-2 rounded"
+					className="bg-[#dd0c0c] hover:bg-[#b41717] text-white font-bold p-2 rounded"
 					type="button"
 					onClick={clear}
 				>
