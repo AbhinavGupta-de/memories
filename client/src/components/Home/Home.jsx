@@ -3,7 +3,7 @@ import { Form, Posts, Welcome } from '../../components/';
 import { useDispatch } from 'react-redux';
 import { getPosts } from '../../actions/posts';
 
-const Home = ({ user }) => {
+const Home = ({ user, setUser }) => {
 	const dispatch = useDispatch();
 	const [currentId, setCurrentId] = useState(null); // [1
 
@@ -19,7 +19,7 @@ const Home = ({ user }) => {
 					<Form currentId={currentId} setCurrentId={setCurrentId} />
 				</div>
 			) : (
-				<Welcome />
+				<Welcome user={user} setUser={setUser} />
 			)}
 		</div>
 	);

@@ -10,7 +10,7 @@ const Header = ({ user, setUser }) => {
 	};
 
 	return (
-		<div className="w-[85%] mx-auto my-5 p-2 items-center justify-between flex border border-solid rounded-md shadow-sm shadow-black gap-1">
+		<div className="w-[85%] mx-auto my-5 p-2 items-center justify-between flex lg:flex-row flex-col  border border-solid rounded-md shadow-sm shadow-black gap-1">
 			<Link to="/">
 				<div className="flex gap-1">
 					<div className="text-[28px] text-[#42c0f8] font-semibold">

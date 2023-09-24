@@ -13,8 +13,7 @@ function App() {
 				<div className="font-Fira">
 					<Header user={user} setUser={setUser} />
 					<Routes>
-						<Route path="/" element={<Home user={user} />} />
-						<Route path="/auth" element={<h1>Auth</h1>} />
+						<Route path="/" element={<Home user={user} setUser={setUser} />} />
 					</Routes>
 				</div>
 			</GoogleOAuthProvider>
