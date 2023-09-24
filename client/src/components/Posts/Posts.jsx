@@ -3,7 +3,6 @@ import { Post } from '..';
 
 const Posts = ({ currentId, setCurrentId }) => {
 	const posts = useSelector((state) => state.posts);
-	console.log(posts);
 	return !posts.length ? (
 		<div className="lg:col-span-2 max-h-fit flex flex-col">
 			<div className="flex justify-center items-center">

@@ -1,17 +1,19 @@
 import { Header, Home } from './components';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-const clientUrl = import.meta.env.VITE_CLIENT_URL;
 
 function App() {
+	const clientUrl = import.meta.env.VITE_CLIENT_URL;
+	const [user, setUser] = useState(null);
+
 	return (
 		<BrowserRouter>
 			<GoogleOAuthProvider clientId={`${clientUrl}`}>
 				<div className="font-Fira">
-					<Header />
-
+					<Header user={user} setUser={setUser} />
 					<Routes>
-						<Route path="/" element={<Home />} />
+						<Route path="/" element={<Home user={user} />} />
 						<Route path="/auth" element={<h1>Auth</h1>} />
 					</Routes>
 				</div>
